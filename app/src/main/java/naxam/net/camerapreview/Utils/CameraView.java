@@ -16,6 +16,17 @@ import java.io.IOException;
 public class CameraView extends SurfaceView implements  SurfaceHolder.Callback{
     private SurfaceHolder mHolder;
     private Camera mCamera;
+    private Camera.PreviewCallback cameraPreviewCallback = new Camera.PreviewCallback() {
+        @Override
+        public void onPreviewFrame( byte[] data, Camera camera )
+
+        {
+            Log.d("thaohandsome", "onPreviewFrame: ");
+            // The buffer that we have given to the camera in ITextCaptureService.Callback.onRequestLatestFrame
+            // above have been filled. Send it back to the Text Capture Service
+        }
+    };
+
 
     public CameraView(Context context, Camera camera){
         super(context);
@@ -54,6 +65,7 @@ public class CameraView extends SurfaceView implements  SurfaceHolder.Callback{
 
         //now, recreate the camera preview
         try{
+            mCamera.setPreviewCallback(cameraPreviewCallback);
             mCamera.setPreviewDisplay(mHolder);
             mCamera.startPreview();
         } catch (IOException e) {

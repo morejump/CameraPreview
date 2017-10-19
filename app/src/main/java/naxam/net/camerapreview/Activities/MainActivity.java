@@ -40,10 +40,12 @@ public class MainActivity extends AppCompatActivity {
 
         }};
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         btnTakePictue= (Button) findViewById(R.id.btnTakePictue);
         btnTakePictue.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,7 +53,6 @@ public class MainActivity extends AppCompatActivity {
                 mCamera.takePicture(myShutterCallback,myPictureCallback_RAW,myPictureCallback_JPG);
             }
         });
-
 
         try{
             mCamera = Camera.open();//you can use open(int) to use different cameras
