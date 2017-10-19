@@ -19,6 +19,13 @@
             android:padding="20dp" />
 
     </FrameLayout>
+    <Button
+        android:id="@+id/btnTakePictue"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/camera_view"
+        android:text="Take picture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
 
 </RelativeLayout>
